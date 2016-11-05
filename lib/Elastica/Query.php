@@ -290,6 +290,7 @@ class Query extends Param
             $this->setScriptFields([$name => $script]);
         }
 
+//        print_r($this->toArray());die;
         return $this;
     }
 

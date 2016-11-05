@@ -18,6 +18,7 @@ class Script extends AbstractScript
     const LANG_PYTHON = 'python';
     const LANG_NATIVE = 'native';
     const LANG_EXPRESSION = 'expression';
+    const LANG_PAINLESS = 'painless';
 
     /**
      * @var string
@@ -145,7 +146,7 @@ class Script extends AbstractScript
     public function toArray()
     {
         $array = [
-            'inline' => $this->_script,
+            'inline' => $this->_script
         ];
 
         if (!empty($this->_params)) {
