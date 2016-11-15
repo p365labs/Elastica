@@ -18,6 +18,11 @@ http.host: 0.0.0.0
 # Without this, travis builds will be failed with OutOfMemory error
 processors: 1
 
+cluster.name: elasticaCluster
+node.master: true
+node.data: true
+network.host: _site_
+
 # All nodes will be called Elastica
 node.name: Elastica
 

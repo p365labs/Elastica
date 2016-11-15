@@ -17,6 +17,9 @@ checkHost() {
 
 readParams() {
   checkHost "ES_HOST"
+  echo "************************"
+  echo $ES_HOST
+  echo "************************"
 
   # Use default ports if not specified.
   : ${ES_PORT:=9200}
@@ -25,8 +28,8 @@ readParams() {
 # Wait for elasticsearch to start. It requires that the status be either
 # green or yellow.
 waitForElasticsearch() {
-  echo -n "Waiting on elasticsearch(${ES_HOST}:${ES_PORT}) to start."
-  for ((i=1;i<=60;i++))
+  echo -n "Waiting on elasticsearch(${ES_HOST}:${ES_PORT}) to start. (it may takes up to 3 minutes.)"
+  for ((i=1;i<=180;i++))
   do
     health=$(curl --silent "http://${ES_HOST}:${ES_PORT}/_cat/health" | awk '{print $4}')
     if [[ "$health" == "green" ]] || [[ "$health" == "yellow" ]]
